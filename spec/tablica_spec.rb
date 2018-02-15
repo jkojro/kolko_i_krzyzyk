@@ -20,5 +20,12 @@ module XOX
 				end
 			end
 		end
+
+		context "#tablica" do
+			it "returns the grid 'tablica' " do
+				tablica = Tablica.new(grid: "tablica")
+				expect(tablica.grid).to eq "tablica"
+			end
+		end
 	end
 end

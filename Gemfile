@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in XOX.gemspec
+
+gem 'rspec-rails'
+
+gem 'rspec-collection_matchers'
+
 gemspec

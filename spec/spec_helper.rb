@@ -1,4 +1,5 @@
 require "bundler/setup"
+require 'rspec/collection_matchers'
 require "XOX"
 require_relative "../lib/xox.rb"
 
