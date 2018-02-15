@@ -27,5 +27,23 @@ module XOX
 				expect(tablica.grid).to eq "tablica"
 			end
 		end
+
+		context "#get_cell" do
+			it "returns the cell based on (x,y) coordinate" do
+				grid = [["", "", ""], ["", "", "test-cell"], ["", "", ""]]
+				tablica = Tablica.new(grid: grid)
+				expect(tablica.get_cell(2, 1)).to eq "test-cell"
+			end
+		end
+
+		context "#set_cell" do
+			it "sets a value to the cell with (x, y) coordinate" do
+				Cat = Struct.new(:value)
+				grid = [[Cat.new("cool"), "", ""], ["", "", ""], ["", "", ""]]
+				tablica = Tablica.new(grid: grid)
+				tablica.set_cell(0, 0, "bingo")
+				expect(tablica.get_cell(0, 0).value).to eq "bingo"
+			end
+		end
 	end
 end
