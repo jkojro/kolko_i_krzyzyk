@@ -45,5 +45,27 @@ module XOX
 				expect(tablica.get_cell(0, 0).value).to eq "bingo"
 			end
 		end
+
+		context "#game_over" do
+  			it "returns :winner if winner? is true" do
+    			tablica = Tablica.new
+    			tablica.stub(:winner?) { true }
+   				expect(tablica.game_over).to eq :winner
+  			end
+ 
+  			it "returns :draw if winner? is false and draw? is true" do
+    			tablica = Tablica.new
+    			tablica.stub(:winner?) { false }
+    			tablica.stub(:draw?) { true }
+    			expect(tablica.game_over).to eq :draw
+  			end
+ 
+  			it "returns false if winner? is false and draw? is false" do
+    			tablica = Tablica.new
+    			tablica.stub(:winner?) { false }
+    			tablica.stub(:draw?) { false }
+    			expect(tablica.game_over).to be false
+  			end
+		end
 	end
 end
