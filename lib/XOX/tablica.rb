@@ -26,10 +26,33 @@ module XOX
 			Array.new(3) {Array.new(3) {Komorka.new}}
 		end
 
-		def winner
+		def winner?
+			winning_positions.each do |winning_position|
+				next if winning_position_values(winning_position).all_empty?
+				return true if winning_position_values(winning_position).all_same?
+			end
+			false
 		end
 
-		def draw
+		def winning_position_values(winning_position)
+			winning_position.map { |komorka| komorka.value }
+		end
+
+		def winning_positions
+			grid + #rows
+			grid.transpose + #columns
+			diagonals
+		end
+
+		def diagonals
+			[
+				[get_cell(0,0),get_cell(1,2), get_cell(2,2)],
+				[get_cell(0,2),get_cell(1,1), get_cell(2,0)]
+			]
+		end
+
+		def draw?
+			grid.flatten.map { |komorka| komorka.value }.none_empty?
 		end
 
 
