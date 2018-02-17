@@ -19,6 +19,12 @@ module XOX
 			false
 		end
 
+		def formatted_grid
+      		grid.each do |row|
+        	puts row.map { |komorka| komorka.value.empty? ? "_" : komorka.value }.join(" ")
+      	end
+	end
+
 
 		private
 
@@ -46,7 +52,7 @@ module XOX
 
 		def diagonals
 			[
-				[get_cell(0,0),get_cell(1,2), get_cell(2,2)],
+				[get_cell(0,0),get_cell(1,1), get_cell(2,2)],
 				[get_cell(0,2),get_cell(1,1), get_cell(2,0)]
 			]
 		end
